@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<project name="take2task" default="compile" basedir=".">
+
+    <property name="src" value="src"/>
+    <property name="bin" value="bin"/>    
+    <property name="lib" value="lib"/>
+    <property name="gson.jar" value="${lib}/gson-1.6.jar"/>
+  
+    <target name="clean">
+        <delete failonerror="false" includeEmptyDirs="true">
+            <fileset dir="${bin}"/>
+        </delete>
+        <mkdir dir="${bin}"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <javac srcdir="${src}"
+               destdir="${bin}" 
+               classpath="${gson.jar}" 
+               debug="on"
+               source="1.6"
+               includeAntRuntime="false"
+               />
+    </target>
+  
+</project>
